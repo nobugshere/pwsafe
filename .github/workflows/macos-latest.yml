@@ -72,8 +72,8 @@ jobs:
       working-directory: ${{ github.workspace }}
       run: Xcode/generate-configs -r $WX_BUILD_DIR/bin/wx-config > Xcode/pwsafe-release.xcconfig
     
-    - name: xcconfig contents
-      run: cat Xcode/pwsafe-release.xcconfig
+    - name: pcre2 lib location
+      run: ls -la /usr/local/Cellar/pcre2/10.42/lib
     
     - name: Build pwsafe
       working-directory: ${{ github.workspace }}
