@@ -63,7 +63,7 @@ jobs:
         mkdir -p $WX_BUILD_DIR
         cd $WX_SRC_DIR
         # use built-in versions of jpeg, tiff & png libs to avoid linking with those in /usr/local/opt
-        ./configure --prefix=$WX_BUILD_DIR --disable-shared --enable-unicode --with-macosx-version-min=$MACOS_VER_MIN --with-libpng=builtin --with-libjpeg=builtin --with-libtiff=builtin --without-liblzma
+        ./configure --prefix=$WX_BUILD_DIR --disable-shared --enable-unicode --with-macosx-version-min=$MACOS_VER_MIN --with-libpng=builtin --with-libjpeg=builtin --with-libtiff=builtin --with-regex=builtin --without-liblzma
         make
         make install
         du -sh $WX_BUILD_DIR
@@ -71,15 +71,6 @@ jobs:
     - name: Generate xcconfigs
       working-directory: ${{ github.workspace }}
       run: Xcode/generate-configs -r $WX_BUILD_DIR/bin/wx-config > Xcode/pwsafe-release.xcconfig
-    
-    - name: List Xcode/pwsafe-release.xcconfig
-      run: cat Xcode/pwsafe-release.xcconfig
-      
-    - name: List pcre2 lib location
-      run: ls -la /usr/local/Cellar/pcre2/10.42/lib
-    
-    - name: Brute force a static link
-      run: rm /usr/local/Cellar/pcre2/10.42/lib/*.dylib
       
     - name: Build pwsafe
       working-directory: ${{ github.workspace }}
