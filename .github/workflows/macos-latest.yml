@@ -72,15 +72,15 @@ jobs:
       working-directory: ${{ github.workspace }}
       run: Xcode/generate-configs -r $WX_BUILD_DIR/bin/wx-config > Xcode/pwsafe-release.xcconfig
     
-    - name: pcre2 lib location
+    - name: List Xcode/pwsafe-release.xcconfig
+      run: cat Xcode/pwsafe-release.xcconfig
+      
+    - name: List pcre2 lib location
       run: ls -la /usr/local/Cellar/pcre2/10.42/lib
     
     - name: Brute force a static link
       run: rm /usr/local/Cellar/pcre2/10.42/lib/*.dylib
       
-    - name: Check pcre2 lib location again
-      run: ls -la /usr/local/Cellar/pcre2/10.42/lib
-   
     - name: Build pwsafe
       working-directory: ${{ github.workspace }}
       run: xcodebuild -project Xcode/pwsafe-xcode6.xcodeproj -scheme pwsafe
