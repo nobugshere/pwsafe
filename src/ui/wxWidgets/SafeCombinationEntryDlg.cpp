@@ -235,17 +235,6 @@ void SafeCombinationEntryDlg::CreateControls()
 ////@end SafeCombinationEntryDlg content construction
   m_combinationEntry->SetValidatorTarget(& m_password);
 
-  // Event handler to show full path of filename as tooltip.
-  m_filenameCB->Bind(wxEVT_MOTION, [&](wxMouseEvent& WXUNUSED(event)) {
-    m_filenameCB->SetToolTip(m_filename);
-  });
-
-  // Event handler to shorten the file path name if it doesn't fit into the combobox.
-  m_filenameCB->Bind(wxEVT_COMBOBOX, [&](wxCommandEvent& WXUNUSED(event)) {
-    m_filename = m_filenameCB->GetValue(); // Update for tooltip which shows the full path
-    // EllipsizeFilePathname is build up in wxEVT_KILL_FOCUS
-  });
-
   // Event handler to show the full file path name for editing if text entry field of combobox got the focus.
   m_filenameCB->Bind(wxEVT_SET_FOCUS, [&](wxFocusEvent& WXUNUSED(event)) {
     m_filenameCB->ChangeValue(m_filename);
@@ -253,26 +242,16 @@ void SafeCombinationEntryDlg::CreateControls()
 
   // Event handler if text entry field of combobox lost the focus.
   m_filenameCB->Bind(wxEVT_KILL_FOCUS, [&](wxFocusEvent& WXUNUSED(event)) {
-    wxString filename;
-    filename = m_filenameCB->GetValue(); // The user may have changed the file name or path manually.
-    m_filenameCB->ChangeValue(EllipsizeFilePathname(filename));
-    m_filename = filename; // Set m_filename after update, as wxEVT_TEXT event will change
+    m_filename = m_filenameCB->GetValue(); // The user may have changed the file name or path manually.
+    EllipsizeFilePathname();
+    UpdateReadOnlyCheckbox();
   });
 
   // Event handler to update the file path name string if the size of the combobox changed.
   m_filenameCB->Bind(wxEVT_SIZE, [&](wxSizeEvent& WXUNUSED(event)) {
     // Don't irritate the user with shortening the path if the text entry box has the focus for manual editing.
     if (!m_filenameCB->HasFocus()) {
-      wxString filename = m_filename;
-      m_filenameCB->ChangeValue(EllipsizeFilePathname(m_filename));
-      m_filename = filename; // Set m_filename after update, as wxEVT_TEXT event will change
-    }
-  });
-
-  // Event handler to update the internal member that is used to show the tooltip.
-  m_filenameCB->Bind(wxEVT_TEXT, [&](wxCommandEvent& WXUNUSED(event)) {
-    if (m_filenameCB->HasFocus()) {
-      m_filename = m_filenameCB->GetValue(); // The user may have changed the file name or path manually.
+      EllipsizeFilePathname();
     }
   });
 
@@ -287,10 +266,6 @@ void SafeCombinationEntryDlg::CreateControls()
   wxArrayString recentFiles;
   wxGetApp().recentDatabases().GetAll(recentFiles);
   m_filenameCB->Append(recentFiles);
-  // The underlying native combobox widget might not yet be ready
-  //  to hand back the string we just added
-  wxCommandEvent cmdEvent(wxEVT_COMBOBOX, m_filenameCB->GetId());
-  GetEventHandler()->AddPendingEvent(cmdEvent);
   SetIcons(wxGetApp().GetAppIcons());
 }
 
@@ -300,10 +275,15 @@ void SafeCombinationEntryDlg::OnActivate( wxActivateEvent& event )
   if (!m_postInitDone) {
     // if filename field not empty, set focus to password:
     if (!m_filename.empty()) {
-      wxString filename = m_filename;
       FindWindow(ID_COMBINATION)->SetFocus();
-      m_filenameCB->ChangeValue(EllipsizeFilePathname(m_filename));
-      m_filename = filename; // Set m_filename after update, as wxEVT_TEXT event will change
+      EllipsizeFilePathname();
+      UpdateReadOnlyCheckbox();
+#ifdef __WXOSX__
+      // On macOS the ellipsized text gets overwritten by the full pathname
+      // sometime after OnActivate returns.  I suspect the validator is (re)loading the
+      // control.  This hack forces a correction.
+      m_filenameCB->PostSizeEvent();
+#endif
     }
     m_postInitDone = true;
   }
@@ -366,13 +346,19 @@ wxIcon SafeCombinationEntryDlg::GetIconResource( const wxString& WXUNUSED(name) 
 void SafeCombinationEntryDlg::OnOk( wxCommandEvent& )
 {
   // For the validation process, put the full file path name back into the combo box.
+  // Calling 'EllipsizeFilePathname' will undo this.
   m_filenameCB->ChangeValue(m_filename);
 
-  if (Validate() && TransferDataFromWindow()) {
+  if (!Validate()) {
+    EllipsizeFilePathname();
+    return;
+  }
+  if (TransferDataFromWindow()) {
     if (m_password.empty()) {
       wxMessageDialog err(this, _("The combination cannot be blank."),
                           _("Error"), wxOK | wxICON_EXCLAMATION);
       err.ShowModal();
+      EllipsizeFilePathname();
       FindWindow(ID_COMBINATION)->SetFocus();
       return;
     }
@@ -383,11 +369,14 @@ void SafeCombinationEntryDlg::OnOk( wxCommandEvent& )
       m_filenameCB->SetFocus();
       return;
     }
-    ProcessPhrase();
-  } // Validate && TransferDataFromWindow
+    if (ProcessPhrase()) {
+      EndModal(wxID_OK);
+    }
+  } // TransferDataFromWindow
+  EllipsizeFilePathname();
 }
 
-void SafeCombinationEntryDlg::ProcessPhrase()
+bool SafeCombinationEntryDlg::ProcessPhrase()
 {
   static unsigned tries = 0;
   int status = m_core.CheckPasskey(tostringx(m_filename), m_password);
@@ -429,8 +418,7 @@ void SafeCombinationEntryDlg::ProcessPhrase()
     m_core.SetReadOnly(m_readOnly);
     m_core.SetCurFile(tostringx(m_filename));
     wxGetApp().recentDatabases().AddFileToHistory(m_filename);
-    EndModal(wxID_OK);
-    return;
+    return true;
   }
   case PWScore::CANT_OPEN_FILE: {
     stringT str;
@@ -462,6 +450,7 @@ void SafeCombinationEntryDlg::ProcessPhrase()
     txt->SetSelection(-1,-1);
     txt->SetFocus();
   }
+  return false;
 }
 
 /*!
@@ -488,17 +477,15 @@ void SafeCombinationEntryDlg::OnEllipsisClick(wxCommandEvent& WXUNUSED(evt))
                   (wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_CHANGE_DIR));
 
   if (fd.ShowModal() == wxID_OK) {
-    wxString filename;
-    filename = fd.GetPath();
+    m_filename = fd.GetPath();
     auto *cb = dynamic_cast<wxComboBox *>(FindWindow(ID_DBASECOMBOBOX));
     if (cb->HasFocus()) {
-      cb->ChangeValue(filename); // Will be changed to EllipsizeFilePathname in wxEVT_KILL_FOCUS
+      cb->ChangeValue(m_filename); // Will be changed to EllipsizeFilePathname in wxEVT_KILL_FOCUS
     }
     else {
-      cb->ChangeValue(EllipsizeFilePathname(filename));
+      EllipsizeFilePathname();
     }
     UpdateReadOnlyCheckbox();
-    m_filename = filename;
   }
 }
 
@@ -625,10 +612,13 @@ void SafeCombinationEntryDlg::OnYubibtnClick(wxCommandEvent& WXUNUSED(event))
     bool oldYubiChallenge = ::wxGetKeyState(WXK_SHIFT); // for pre-0.94 databases
     if (PerformChallengeResponse(this, m_password, response, oldYubiChallenge)) {
       m_password = response;
-      ProcessPhrase();
-      UpdateStatus();
+      if (ProcessPhrase()) {
+        EndModal(wxID_OK);
+      }
     }
   }
+  EllipsizeFilePathname();
+  UpdateStatus();
 }
 
 void SafeCombinationEntryDlg::OnPollingTimer(wxTimerEvent &evt)
@@ -641,12 +631,19 @@ void SafeCombinationEntryDlg::OnPollingTimer(wxTimerEvent &evt)
 
 void SafeCombinationEntryDlg::OnDBSelectionChange(wxCommandEvent& WXUNUSED(event))
 {
+  m_filename = m_filenameCB->GetValue(); // Update for tooltip which shows the full path
+  m_filenameCB->SetToolTip(m_filename);
+  // On Linux, after selecting from the list nothing has focus, so the name should be ellipsized.
+  // On macOS, the combobox keeps focus, so this will be skipped
+  if (!m_filenameCB->HasFocus()) {
+    EllipsizeFilePathname();
+  }
   UpdateReadOnlyCheckbox();
 }
 
 void SafeCombinationEntryDlg::UpdateReadOnlyCheckbox()
 {
-  wxFileName fn(m_filenameCB->GetValue());
+  wxFileName fn(m_filename);
 
   // Do nothing if the file doesn't exist
   if ( fn.FileExists() ) {
@@ -677,17 +674,21 @@ void SafeCombinationEntryDlg::OnReadonlyClick( wxCommandEvent& event )
   UpdateNew(m_readOnly);
 }
 
-wxString SafeCombinationEntryDlg::EllipsizeFilePathname(const wxString& filename)
+void SafeCombinationEntryDlg::EllipsizeFilePathname()
 {
-  if (filename.IsEmpty()) {
-    return filename;
+  if (m_filename.IsEmpty()) {
+    return;
   }
 
   wxScreenDC dc;
 
-  return m_filenameCB->Ellipsize(
-    filename, dc, wxEllipsizeMode::wxELLIPSIZE_MIDDLE,
-    /* The limiting width for the text is the combobox width reduced by the drop-down button width and margins. */
-    (m_filenameCB->GetSize()).GetWidth() - 50
+  m_filenameCB->ChangeValue(
+    wxControl::Ellipsize(
+      m_filename, dc, wxEllipsizeMode::wxELLIPSIZE_MIDDLE,
+      /* The limiting width for the text is the combobox width reduced by the drop-down button width and margins. */
+      (m_filenameCB->GetSize()).GetWidth() - 50
+    )
   );
+  // Make sure the tooltip has the current full filename
+  m_filenameCB->SetToolTip(m_filename);
 }
