@@ -48,6 +48,7 @@
 #include "core/SysInfo.h"
 #include "core/PWSdirs.h"
 #include "wxUtilities.h"
+#include "wx/uilocale.h"
 
 #if defined(__X__) || defined(__WXGTK__) || defined(__WXOSX__)
 #include "Clipboard.h"
@@ -676,6 +677,16 @@ bool PWSafeApp::ActivateLanguage(wxLanguage language, bool tryOnly)
     const wxLanguageInfo *langInfo = nullptr;
     langInfo = wxLocale::GetLanguageInfo(language);
     if(langInfo) {
+      // The are multiple locale variations for english.  (i.e. en_US, en_GB, etc.)
+      // Just using en.UTF-8 causes some inconsistent results. Specifically, date
+      // formats seem to default to en_GB.  If we are trying to activate generic English,
+      // check the system locale and, if it is more specific, use that instead.
+      if (langInfo->CanonicalName == "en") {
+        wxLocaleIdent sysLocaleId = wxUILocale::GetSystemLocaleId();
+        if (sysLocaleId.GetLanguage() == "en" && sysLocaleId.GetRegion() != "") {
+          langInfo = wxUILocale::FindLanguageInfo(sysLocaleId);
+        }
+      }
       wxString envString = langInfo->CanonicalName + ".UTF-8";
       setlocale(LC_CTYPE, envString.c_str());
       setlocale(LC_TIME, envString.c_str());
