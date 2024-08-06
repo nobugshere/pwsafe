@@ -265,6 +265,9 @@ void AddEditPropSheetDlg::CreateControls()
   m_PasswordPolicyOwnSymbolsTextCtrl->SetValue(m_Symbols);
 
   m_DatesTimesExpiryTimeCtrl->SetRange(1, 3650);
+  //
+  // TODO....temporary...
+  GetBookCtrl()->SetSelection(2);
 }
 
 wxPanel* AddEditPropSheetDlg::CreateBasicPanel()
