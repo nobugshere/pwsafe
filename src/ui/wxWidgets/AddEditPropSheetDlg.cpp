@@ -1391,6 +1391,7 @@ void AddEditPropSheetDlg::InitializeExpTimes()
       m_DatesTimesExpiryTimeCtrl->SetValue(m_ExpirationTimeInterval);
       m_OriginalRecurring = true;
       m_OriginalButton = m_DatesTimesExpireInCtrl;
+      exp = TodayPlusInterval();
     }
   }
   m_DatesTimesRecurringExpiryCtrl->Enable(m_OriginalRecurring);
@@ -1410,7 +1411,7 @@ void AddEditPropSheetDlg::InitializeExpTimes()
 
   if (m_OriginalDayttt) {
     wxString rstr;
-    int interval = IntervalFromDate(exp);
+    int interval = IntervalFromDate(wxDateTime(m_OriginalDayttt));
 
     if (interval > 0) {
       wxString str = (interval == 1) ? _(" (Expires in %d day)") : _(" (Expires in %d days)") ;
@@ -2333,16 +2334,18 @@ Command* AddEditPropSheetDlg::NewEditEntryCommand()
     m_Item.SetStatus(CItemData::ES_MODIFIED);
   }
   
-  // Specific date or interval selected, save the date
+  // Specific date or interval changed, save the date
   if (changes & (Changes::XTime | Changes::XTimeInt)) {
     m_Item.SetXTime(NormalizeExpDate(m_DatesTimesExpiryDateCtrl->GetValue()).GetTicks());
   }
 
   // Only save an interval if recurring is set
-  if (changes & Changes::XTimeInt && m_Recurring) {
-    m_Item.SetXTimeInt(m_ExpirationTimeInterval);
-  } else {
-    m_Item.SetXTimeInt(0);
+  if (changes & Changes::XTimeInt) {
+    if (m_Recurring) {
+      m_Item.SetXTimeInt(m_ExpirationTimeInterval);
+    } else {
+      m_Item.SetXTimeInt(0);
+    }
   }
 
   // Never expire, zeros won't be written to the file
