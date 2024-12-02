@@ -9,15 +9,28 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2024-05-27 21:08+0300\n"
+"PO-Revision-Date: 2024-10-20 22:02+0300\n"
 "Last-Translator: Rony Shapiro <ronys@pwsafe.org>\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -1509,10 +1522,6 @@ msgstr "Jövőbeni dátum nem érvényes ebben a mezőben "
 msgid "A hidden password needs to be entered in the Confirm Password field too. If it's not hidden, the Confirm field shows numbers that may be used to help count the password's characters."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "A new password database will be created. The Master Password you enter will be used to encrypt the password database file. The Master Password can use any keyboard character and is case-sensitive."
-msgstr "Létrejön egy új jelszóadatbázis. A megadott fő jelszó a jelszó-adatbázisfájl titkosítására szolgál. A fő jelszó bármilyen billentyűzetkaraktert használhat, és megkülönbözteti a kis- és nagybetűket."
-
 #. Resource IDs: (5861)
 msgid ""
 "A red and white indicator means that a filter is active\n"
@@ -2238,23 +2247,23 @@ msgstr ""
 
 #. Resource IDs: (5354)
 msgid "Choose a database to compare with current database"
-msgstr ""
+msgstr "Az aktuális adatbázissal összehasonlítani kívánt adatbázis kiválasztása"
 
 #. Resource IDs: (5348)
 msgid "Choose a database to merge into the current database"
-msgstr ""
+msgstr "Az aktuális adatbázisba egyesíteni kívánt adatbázis kiválasztása"
 
 #. Resource IDs: (5753)
 msgid "Choose a database to synchronize with current database"
-msgstr ""
+msgstr "Kérem válassza ki az aktuális adatbázissal szinkronizálandó adatbázist"
 
 #. Resource IDs: (5327)
 msgid "Choose a name for the current (Untitled) database:"
-msgstr ""
+msgstr "Kérem válasszon nevet az aktuális (Névtelen) adatbázisnak:"
 
 #. Resource IDs: (5328)
 msgid "Choose a new name for the current database:"
-msgstr ""
+msgstr "Válasszon új nevet az aktuális adatbázisnak:"
 
 #. Resource IDs: (5343)
 msgid "Choose an XML File to Import"
@@ -2605,6 +2614,8 @@ msgid ""
 "Confirm to delete the current user's PasswordSafe configuration from the Windows registry.\n"
 "\n"
 msgstr ""
+"Erősítse meg az aktuális felhasználó PasswordSafe konfigurációjának törlését a Windows beállításjegyzékéből.\n"
+"\n"
 
 #. Resource IDs: (1505, 65535)
 msgid "Confirmation:"
@@ -3006,7 +3017,7 @@ msgstr ""
 
 #. Resource IDs: (5876)
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 #. Resource IDs: (65535)
 msgid "Description:"
@@ -3042,7 +3053,7 @@ msgstr "Dialógus"
 
 #. Resource IDs: (6063)
 msgid "Discard"
-msgstr ""
+msgstr "Eldobás"
 
 #. Resource IDs: (61869)
 #, c-format
@@ -3364,7 +3375,7 @@ msgstr "Adjon meg egy pozitív számot."
 
 #. Resource IDs: (5272)
 msgid "Enter a search string"
-msgstr ""
+msgstr "Keresési karakterlánc beírása"
 
 #. Resource IDs: (61723)
 msgid "Enter a time."
@@ -3398,7 +3409,7 @@ msgstr "Adja meg a jelszó karaktereinek helyét szóközzel, vesszővel vagy po
 
 #. Resource IDs: (65535)
 msgid "Enter the Master Password to unlock the password database:"
-msgstr ""
+msgstr "Adja meg a mesterjelszót a jelszó-adatbázis feloldásához:"
 
 #. Resource IDs: (6101)
 msgid "Enter the authentication secret key. This usually taken from the authenticator setup page."
@@ -4271,141 +4282,176 @@ msgid "Hungarian 101-key"
 msgstr "Magyar 101 billentyűs"
 
 #. Accelerator Entry for Menu ID:32002; '&Open Another'
+#. Accelerator Entry for Menu ID:32002; '&Open Another'
 msgid "ID:32002:V C +O"
 msgstr "Azonosító:32002:V C +O"
 
+#. Accelerator Entry for Menu ID:32003; '&New...'
 #. Accelerator Entry for Menu ID:32003; '&New...'
 msgid "ID:32003:V C +N"
 msgstr "Azonosító:32003:V C +N"
 
 #. Accelerator Entry for Menu ID:32005; '&Save'
+#. Accelerator Entry for Menu ID:32005; '&Save'
 msgid "ID:32005:V C +S"
 msgstr "Azonosító:32005:V C +S"
 
+#. Accelerator Entry for Menu ID:32021; 'E&xit'
 #. Accelerator Entry for Menu ID:32021; 'E&xit'
 msgid "ID:32021:V C +Q"
 msgstr "Azonosító:32021:V C +Q"
 
 #. Accelerator Entry for Menu ID:32027; '&Lock'
+#. Accelerator Entry for Menu ID:32027; '&Lock'
 msgid "ID:32027:V CS+L"
 msgstr "ID:32027:V CS+L"
 
+#. Accelerator Entry for Menu ID:32051; '&Add Entry...'
 #. Accelerator Entry for Menu ID:32051; '&Add Entry...'
 msgid "ID:32051:V C +A"
 msgstr "Azonosító:32051:V C +A"
 
 #. Accelerator Entry for Menu ID:32063; '&Duplicate Entry'
+#. Accelerator Entry for Menu ID:32063; '&Duplicate Entry'
 msgid "ID:32063:V C +D"
 msgstr "Azonosító:32063:V C +D"
 
+#. Accelerator Entry for Menu ID:32066; '&Copy Password to Clipboard'
 #. Accelerator Entry for Menu ID:32066; '&Copy Password to Clipboard'
 msgid "ID:32066:V C +C"
 msgstr "Azonosító:32066:V C +C"
 
 #. Accelerator Entry for Menu ID:32067; 'Display subset of Password'
+#. Accelerator Entry for Menu ID:32067; 'Display subset of Password'
 msgid "ID:32067:V C +B"
 msgstr "ID:32067:V C +B"
 
+#. Accelerator Entry for Menu ID:32068; 'Copy &Username to Clipboard'
 #. Accelerator Entry for Menu ID:32068; 'Copy &Username to Clipboard'
 msgid "ID:32068:V C +U"
 msgstr "ID:32068:V C +U"
 
 #. Accelerator Entry for Menu ID:32069; 'Copy &Notes to Clipboard'
+#. Accelerator Entry for Menu ID:32069; 'Copy &Notes to Clipboard'
 msgid "ID:32069:V C +G"
 msgstr "ID:32069:V C +G"
 
+#. Accelerator Entry for Menu ID:32070; 'Copy UR&L to Clipboard'
 #. Accelerator Entry for Menu ID:32070; 'Copy UR&L to Clipboard'
 msgid "ID:32070:VAC +L"
 msgstr "ID:32070:VAC +L"
 
 #. Accelerator Entry for Menu ID:32072; '&Browse to URL'
+#. Accelerator Entry for Menu ID:32072; '&Browse to URL'
 msgid "ID:32072:V C +L"
 msgstr "ID:32072:V C +L"
 
+#. Accelerator Entry for Menu ID:32073; 'Browse to URL + &AutoType'
 #. Accelerator Entry for Menu ID:32073; 'Browse to URL + &AutoType'
 msgid "ID:32073:VA  +L"
 msgstr "ID:32073:VA  +L"
 
 #. Accelerator Entry for Menu ID:32074; 'Browse to URL w/Alt Browser'
+#. Accelerator Entry for Menu ID:32074; 'Browse to URL w/Alt Browser'
 msgid "ID:32074:VA S+L"
 msgstr "ID:32074:VA S+L"
 
+#. Accelerator Entry for Menu ID:32075; 'Send &Email'
 #. Accelerator Entry for Menu ID:32075; 'Send &Email'
 msgid "ID:32075:V C +E"
 msgstr "ID:32075:V C +E"
 
 #. Accelerator Entry for Menu ID:32076; 'Perform Auto&Type'
+#. Accelerator Entry for Menu ID:32076; 'Perform Auto&Type'
 msgid "ID:32076:V C +T"
 msgstr "ID:32076:V C +T"
 
+#. Accelerator Entry for Menu ID:32077; '&Run Command'
 #. Accelerator Entry for Menu ID:32077; '&Run Command'
 msgid "ID:32077:V C +R"
 msgstr "ID:32077:V C +R"
 
 #. Accelerator Entry for Menu ID:32080; '&Find...'
+#. Accelerator Entry for Menu ID:32080; '&Find...'
 msgid "ID:32080:V C +F"
 msgstr "ID:32080:V C +F"
 
+#. Accelerator Entry for Menu ID:32081; 'Copy Run Command to Clipboard'
 #. Accelerator Entry for Menu ID:32081; 'Copy Run Command to Clipboard'
 msgid "ID:32081:VAC +R"
 msgstr "ID:32081:VAC +R"
 
 #. Accelerator Entry for Menu ID:32083; 'Undo'
+#. Accelerator Entry for Menu ID:32083; 'Undo'
 msgid "ID:32083:V C +Z"
 msgstr "ID:32083:V C +Z"
 
+#. Accelerator Entry for Menu ID:32084; 'Redo'
 #. Accelerator Entry for Menu ID:32084; 'Redo'
 msgid "ID:32084:V C +Y"
 msgstr "ID:32084:V C +Y"
 
 #. Accelerator Entry for Menu ID:32099; 'Display Auth Code'
+#. Accelerator Entry for Menu ID:32099; 'Display Auth Code'
 msgid "ID:32099:VAC +2"
 msgstr "ID:32099:VAC +2"
 
+#. Accelerator Entry for Menu ID:32100; 'Copy Aut&h Code to Clipboard'
 #. Accelerator Entry for Menu ID:32100; 'Copy Aut&h Code to Clipboard'
 msgid "ID:32100:VA  +2"
 msgstr "ID:32100:VA  +2"
 
 #. Accelerator Entry for Menu ID:32140; 'Last Find results'
+#. Accelerator Entry for Menu ID:32140; 'Last Find results'
 msgid "ID:32140:V C +K"
 msgstr "ID:32140:V C +K"
 
+#. Accelerator Entry for Menu ID:32154; '&Options...'
 #. Accelerator Entry for Menu ID:32154; '&Options...'
 msgid "ID:32154:V C +M"
 msgstr "ID:32154:V C +M"
 
 #. Accelerator Entry for Menu ID:32157; 'Cancel'
+#. Accelerator Entry for Menu ID:32157; 'Cancel'
 msgid "ID:32157:V C +P"
 msgstr "ID:32157:V C +P"
 
+#. Accelerator Entry for Menu ID:32302; 'Clear Find'
 #. Accelerator Entry for Menu ID:32302; 'Clear Find'
 msgid "ID:32302:VAC +C"
 msgstr "ID:32302:VAC +C"
 
 #. Accelerator Entry for Menu ID:32304; ''
+#. Accelerator Entry for Menu ID:32304; ''
 msgid "ID:32304:VAC +S"
 msgstr "ID:32304:VAC +S"
 
+#. Accelerator Entry for Menu ID:32307; 'Advanced Find Options'
 #. Accelerator Entry for Menu ID:32307; 'Advanced Find Options'
 msgid "ID:32307:VAC +A"
 msgstr "ID:32307:VAC +A"
 
 #. Accelerator Entry for Menu ID:32500; ''
+#. Accelerator Entry for Menu ID:32500; ''
 msgid "ID:32500:V C +C"
 msgstr "ID:32500:V C +C"
 
+#. Accelerator Entry for Menu ID:32501; ''
 #. Accelerator Entry for Menu ID:32501; ''
 msgid "ID:32501:V C +E"
 msgstr "ID:32501:V C +E"
 
 #. Accelerator Entry for Menu ID:32502; ''
+#. Accelerator Entry for Menu ID:32502; ''
 msgid "ID:32502:V C +F"
 msgstr "ID:32502:V C +F"
 
 #. Accelerator Entry for Menu ID:32503; ''
+#. Accelerator Entry for Menu ID:32503; ''
 msgid "ID:32503:V C +L"
 msgstr "ID:32503:V C +L"
 
+#. Accelerator Entry for Menu ID:32504; ''
 #. Accelerator Entry for Menu ID:32504; ''
 msgid "ID:32504:V C +S"
 msgstr "ID:32504:V C +S"
@@ -4884,7 +4930,7 @@ msgstr "Litván Standard"
 
 #. Resource IDs: (5257)
 msgid "Lock"
-msgstr ""
+msgstr "Zárolás"
 
 #. Resource IDs: (65535)
 msgid "Lock password database "
@@ -5115,7 +5161,7 @@ msgstr "Nevezze el az egyszerű szövegfájlt"
 
 #. Resource IDs: (5621)
 msgid "Name this filter"
-msgstr ""
+msgstr "Nevezze el ezt a szűrőt"
 
 #. Resource IDs: (1039)
 msgid "Name. Name. Name."
@@ -6780,7 +6826,7 @@ msgstr "Adja meg a használni kívánt böngészőt, ha egy bejegyzés URL-mező
 
 #. Resource IDs: (5390)
 msgid "Specify the destination location to contain all backups."
-msgstr ""
+msgstr "Kérem adja meg a mentések helyét."
 
 #. Resource IDs: (5389)
 msgid "Specify the sub-directory to contain all backups."
@@ -7021,6 +7067,10 @@ msgstr "A Ctrl és Shift billentyűk hozzáadva."
 #. Resource IDs: (5945)
 msgid "The Ctrl key has been added."
 msgstr "A Ctrl billentyű hozzáadva."
+
+#. Resource IDs: (65535)
+msgid "The Master Password will be used to protect the new password database file."
+msgstr "A rendszer a mesterjelszót fogja használni az új jelszó-adatbázisfájl védelmére."
 
 #. Resource IDs: (3424)
 msgid ""
@@ -7325,7 +7375,7 @@ msgstr "A felhasználó megadta, hogy a következő mezőket kizárja az export�
 
 #. Resource IDs: (5505)
 msgid "There are more than one entry that fits your selection. Be more specific."
-msgstr ""
+msgstr "Több bejegyzés is megfelel a választásnak. Legyen konkrétabb."
 
 #. Resource IDs: (3358)
 msgid "There are unmatched quotes in the run command"
@@ -7359,6 +7409,9 @@ msgid ""
 "%ls\n"
 "Confirm to continue (All shortcuts to this entry will be deleted)?"
 msgstr ""
+"Ez a bejegyzés a következő %d %ls tartalmazza:\n"
+"%ls\n"
+"Erősítse meg a folytatást (A bejegyzés összes parancsikonja törlődik)?"
 
 #. Resource IDs: (3403)
 #, c-format

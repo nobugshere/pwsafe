@@ -31,7 +31,7 @@
 
 #include "StringX.h"
 #include "Proxy.h"
-#include "os/typedefs.h"
+#include "../os/typedefs.h"
 
 #include <vector>
 
@@ -158,6 +158,7 @@ public:
     LastUsedKeyboard, VKeyboardFontName, VKSampleText, AltNotesEditor,
     LanguageFile, DefaultSymbols, NotesFont, NotesSampleText, AutotypeTaskDelays,
     AddEditFont, AddEditSampleText, AltNotesEditorCmdLineParms, TreeSort,
+    ActiveFilterName,
     NumStringPrefs};
 
   // for DoubleClickAction and ShiftDoubleClickAction

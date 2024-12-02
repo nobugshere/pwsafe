@@ -11,7 +11,7 @@
 // PWScore.h
 //-----------------------------------------------------------------------------
 
-#include "os/pws_tchar.h"
+#include "../os/pws_tchar.h"
 #include "StringX.h"
 #include "PWSfile.h"
 #include "PWSFilters.h"
@@ -191,6 +191,11 @@ public:
                    const int &subgroup_object, const int &subgroup_function,
                    int &numUpdated, CReport *pRpt, bool *pbCancel = nullptr);
 
+  // helper function to Sync a single item, returns true if dstItem was updated.
+  // Adds ProcessPolicyName command to multiCommand if a password policy was updated.
+  bool SyncItem(const CItemData& srcItem, CItemData& dstItem,
+                const CItemData::FieldBits& bsFields, MultiCommands &mcmd, const PWScore *potherCore);
+
   // Used for Empty Groups during Merge
   bool MatchGroupName(const StringX &stValue, const StringX &subgroup_name,
                       const int &iFunction) const;
@@ -272,7 +277,7 @@ public:
   // Get all password policy names
   void GetPolicyNames(std::vector<stringT> &vNames) const;
   bool GetPolicyFromName(const StringX &sxPolicyName, PWPolicy &st_pp) const;
-  Command *ProcessPolicyName(PWScore *pothercore, CItemData &updtEntry,
+  Command *ProcessPolicyName(const PWScore *pothercore, CItemData &updtEntry,
                              std::map<StringX, StringX> &mapRenamedPolicies,
                              std::vector<StringX> &vs_PoliciesAdded,
                              StringX &sxOtherPolicyName, bool &bUpdated,

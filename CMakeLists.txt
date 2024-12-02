@@ -345,7 +345,7 @@ if (NOT WIN32)
                      COMMAND ${GZIP} ARGS -9 -n -c ${PROJECT_SOURCE_DIR}/docs/pwsafe.1 > pwsafe.1.gz
                      WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
   ADD_CUSTOM_TARGET(manpage ALL DEPENDS ${CMAKE_BINARY_DIR}/pwsafe.1.gz)
-  install (FILES ${CMAKE_BINARY_DIR}/pwsafe.1.gz TYPE MAN)
+  install (FILES ${CMAKE_BINARY_DIR}/pwsafe.1.gz DESTINATION "share/man/man1")
   install (FILES "install/desktop/pwsafe.desktop" DESTINATION "share/applications")
   install (FILES "install/metainfo/org.pwsafe.pwsafe.metainfo.xml" DESTINATION "share/metainfo")
   install (FILES "install/graphics/48x48/pwsafe.png" DESTINATION "share/icons/hicolor/48x48/apps/")
@@ -500,6 +500,7 @@ endif(LSB_RELEASE_EXECUTABLE)
 
 if (RELEASE_ID_SHORT)
   string(TOLOWER ${RELEASE_ID_SHORT} DISTRO_NAME)
+  string(REPLACE "\"" "" DISTRO_NAME ${DISTRO_NAME})
 endif (RELEASE_ID_SHORT)
 
 #
@@ -522,7 +523,7 @@ endif ()
 #
 # Build name of package file (e.g. passwordsafe-ubuntu18-1.08.1-BETA-amd64.deb)
 #
-set (CPACK_PACKAGE_FILE_NAME ${CPACK_PACKAGE_NAME}-${DISTRO_NAME}${DISTRO_MAJOR_VERSION}-${CPACK_PACKAGE_VERSION}${PACKAGE_ARCHITECTURE})
+set (CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${DISTRO_NAME}${DISTRO_MAJOR_VERSION}-${CPACK_PACKAGE_VERSION}${PACKAGE_ARCHITECTURE}")
 
 # Post-build stuff: e.g., sign the package
 set(CPACK_POST_BUILD_SCRIPTS "${PROJECT_SOURCE_DIR}/CMakeModules/PostBuild.cmake")
@@ -600,7 +601,12 @@ endif ((${RELEASE_ID_SHORT} STREQUAL "Debian") OR (${RELEASE_ID_SHORT} STREQUAL 
 
 if ((${RELEASE_ID_SHORT} STREQUAL "LinuxMint") OR (${RELEASE_ID_SHORT} STREQUAL "Linuxmint"))
   ## LinuxMint-specific:
-  if (NOT ${RELEASE_NUM_SHORT} VERSION_LESS_EQUAL "19.3")
+  if (NOT ${RELEASE_NUM_SHORT} VERSION_LESS "22")
+  set (LIBCURL "libcurl4 (>= 7.58.0)")
+  set (LIBXERCES "libxerces-c3.2 (>= 3.1.0-1)")
+  set (LIBQRENCODE "libqrencode4 (>= 4.0.2-1)")
+  set (LIBWX  "libwxgtk3.2-1 (>= 3.0.4)")
+  elseif (NOT ${RELEASE_NUM_SHORT} VERSION_LESS_EQUAL "19.3")
     set (LIBCURL "libcurl4 (>= 7.58.0)")
     set (LIBXERCES "libxerces-c3.2 (>= 3.1.0-1)")
     set (LIBQRENCODE "libqrencode4 (>= 4.0.2-1)")
@@ -615,7 +621,7 @@ if ((${RELEASE_ID_SHORT} STREQUAL "LinuxMint") OR (${RELEASE_ID_SHORT} STREQUAL 
     set (LIBXERCES "libxerces-c3.1 (>= 3.1.3+debian-1)")
     set (LIBQRENCODE "libqrencode3 (>= 3.4.4)")
     set (LIBWX  "libwxgtk3.0-0v5 (>= 3.0.0-2) | libwxgtk3.0-0 (>= 3.0.0-2)")
-  endif (NOT ${RELEASE_NUM_SHORT} VERSION_LESS_EQUAL "19.3")
+  endif (NOT ${RELEASE_NUM_SHORT} VERSION_LESS "22")
   set (CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.11.1-0ubuntu7.2), ${LIBCURL}, libmagic1 (>= 1:5.25), libuuid1 (>= 2.17.2-0ubuntu1), ${LIBWX}, libxtst6 (>= 2:1.1.0-2), ${LIBXERCES}, libykpers-1-1 (>= 1.7.0), ${LIBQRENCODE}")
 endif ((${RELEASE_ID_SHORT} STREQUAL "LinuxMint") OR (${RELEASE_ID_SHORT} STREQUAL "Linuxmint"))
 

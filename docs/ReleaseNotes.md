@@ -4,8 +4,32 @@ https://pwsafe.org/. Details about changes to older releases may be found in the
 
 In the following, SFxxxx refers to Bug Reports, Feature Requests and Service Requests in PasswordSafe SourceForge Project tickets, and GHxxxx refers to issues in the PasswordSafe GitHub project.
 
+PasswordSafe 3.67.1pre Release ???
+==================================
+
+Bugs Fixed in 3.67.1pre
+-----------------------
+* [GH1408](https://github.com/pwsafe/pwsafe/issues/1408) Time fields (such as password modification time) are now copied over correctly in sync operations between databases.
+
+PasswordSafe 3.67.0 Release Oct 20 2024
+=======================================
+
+Bugs Fixed in 3.67.0
+----------------------
+* [GH1390](https://github.com/pwsafe/pwsafe/issues/1390), [SF1602](https://sourceforge.net/p/passwordsafe/bugs/1602/) Fixed regression, an entry's password history list now responds to mouse clicks.
+* [GH1371](https://github.com/pwsafe/pwsafe/issues/1371) Fixed regresssion, recently used files are now remembered correctly.
+* [GH1351](https://github.com/pwsafe/pwsafe/issues/1351) Fixed crash in pwsafe-cli when exporting database with named policy to XML.
+
+New features in 3.67.0
+----------------------
+* [GH1301](https://github.com/pwsafe/pwsafe/issues/1301), [SF918](https://sourceforge.net/p/passwordsafe/feature-requests/918/) TOTP authorization code can be used in autotype via '\2'
+* [SF921](https://sourceforge.net/p/passwordsafe/feature-requests/921/) Ctrl-Backspace now clears password fields, both for entries and master passwords.
+* [SF912](https://sourceforge.net/p/passwordsafe/feature-requests/912/) If a view filter is active when a database is closed, it will be activated the next time the database is opened.
+
+
 PasswordSafe 3.66.1 Release Jun 4 2024
 ======================================
+
 Bugs fixed in 3.66.1
 --------------------
 

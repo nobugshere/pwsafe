@@ -7,6 +7,31 @@ https://pwsafe.org/. Details about changes to older releases may be found in the
 
 In the following, SFxxxx refers to Bug Reports, Feature Requests and Service Requests in PasswordSafe SourceForge Project tickets, and GHxxxx refers to issues in the PasswordSafe GitHub project.
 
+
+
+PasswordSafe 1.20.1pre Release ???
+==================================
+
+* [GH1408](https://github.com/pwsafe/pwsafe/issues/1408) Time fields (such as password modification time) are now copied over correctly in sync operations between databases.
+
+PasswordSafe 1.20.0 Release 6 November 2024
+===========================================
+
+Bugs fixed in 1.20.0
+--------------------
+* [GH935](https://github.com/pwsafe/pwsafe/issues/935), [GH1149](https://github.com/pwsafe/pwsafe/issues/1149) Fixed several issues with the password expiration controls
+* [GH1331](https://github.com/pwsafe/pwsafe/issues/1331) Correctly display long paths with ellipsis (...) in Master Password Entry window
+* [GH1332](https://github.com/pwsafe/pwsafe/issues/1332) Correctly display long paths with ellipsis (...) in Unlock Password Database window
+* [GH1372](https://github.com/pwsafe/pwsafe/issues/1372) Man page is now installed in the correct location (regression).
+* [GH1374](https://github.com/pwsafe/pwsafe/issues/1374) Alt browser command line parameters handling fixed, Misc. help function fixed.
+
+New features in 1.20.0
+----------------------
+* [GH1301](https://github.com/pwsafe/pwsafe/issues/1301) TOTP authorization code can be used in autotype via '\2'
+* [FR890](https://sourceforge.net/p/passwordsafe/feature-requests/890) Set the Recurring checkbox by default when expiration by number of days is selected
+* [GH1389](https://github.com/pwsafe/pwsafe/pull/1389) Disable (gray-out) unimplemented configuration options
+
+
 PasswordSafe 1.19.1 Release 2 July 2024
 =======================================
 

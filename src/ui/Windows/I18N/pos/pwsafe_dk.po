@@ -9,15 +9,28 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2024-05-27 21:04+0300\n"
+"PO-Revision-Date: 2024-10-20 21:56+0300\n"
 "Last-Translator: Rony Shapiro <ronys@pwsafe.org>\n"
 "Language-Team: \n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -1607,11 +1620,7 @@ msgstr "En fremtidig dato er ikke gyldig for dette felt"
 
 #. Resource IDs: (5116)
 msgid "A hidden password needs to be entered in the Confirm Password field too. If it's not hidden, the Confirm field shows numbers that may be used to help count the password's characters."
-msgstr ""
-
-#. Resource IDs: (65535)
-msgid "A new password database will be created. The Master Password you enter will be used to encrypt the password database file. The Master Password can use any keyboard character and is case-sensitive."
-msgstr "Der oprettes en ny adgangskodedatabase. Den hovedadgangskode, du indtaster, bruges til at kryptere adgangskodedatabasefilen. Hovedadgangskoden kan bruge ethvert tastaturtegn og skelner mellem store og små bogstaver."
+msgstr "En skjult adgangskode skal også indtastes i feltet Bekræft adgangskode. Hvis det ikke er skjult, viser feltet Bekræft tal, der kan bruges til at tælle adgangskodens tegn."
 
 #. Resource IDs: (5861)
 msgid ""
@@ -2272,7 +2281,7 @@ msgstr ""
 
 #. Resource IDs: (5848)
 msgid "Change database mode?"
-msgstr ""
+msgstr "Skift databasetilstand?"
 
 #. Resource IDs: (5858)
 msgid ""
@@ -2280,6 +2289,9 @@ msgid ""
 "* indicates the database has been changed\n"
 "° indicates a database preference has been changed"
 msgstr ""
+"Skift status siden sidste lagring:\n"
+"* angiver, at databasen er blevet ændret\n"
+"° angiver, at en databasepræference er blevet ændret"
 
 #. Resource IDs: (5913)
 msgid "Change/View Database Default Password Policy"
@@ -2415,7 +2427,7 @@ msgstr "Klik her for at vælge felt"
 
 #. Resource IDs: (5119)
 msgid "Click on a row in the Password History to copy the password on that row to the clipboard."
-msgstr ""
+msgstr "Klik på en række i adgangskodehistorikken for at kopiere adgangskoden på den række til udklipsholderen."
 
 #. Resource IDs: (8153)
 msgid "Click to change case."
@@ -2932,6 +2944,10 @@ msgid ""
 "\n"
 "Visit the Password Safe website to download the latest version."
 msgstr ""
+"Aktuel version: %s\n"
+"Seneste version: %s\n"
+"\n"
+"Besøg webstedet Password Safe for at downloade den nyeste version."
 
 #. Resource IDs: (32155 - MenuEx)
 msgid "Customize &Main Toolbar"
@@ -3255,7 +3271,7 @@ msgstr ""
 
 #. Resource IDs: (5855)
 msgid "Doubleclick action for current entry"
-msgstr ""
+msgstr "Dobbeltklik-handling for aktuel post"
 
 #. Resource IDs: (5697)
 #, c-format
@@ -3701,7 +3717,7 @@ msgstr ""
 
 #. Resource IDs: (1603)
 msgid "Exclude from screen capture"
-msgstr ""
+msgstr "Ekskluder fra skærmoptagelse"
 
 #. Resource IDs: (1004, 32021)
 msgid "Exit"
@@ -3967,15 +3983,15 @@ msgstr "Filen slutter på linie %d før slutningen af dobbelt anførelses tegn i
 
 #. Resource IDs: (3401)
 msgid "File is too big."
-msgstr ""
+msgstr "Filen er for stor."
 
 #. Resource IDs: (3400)
 msgid "File is too short."
-msgstr ""
+msgstr "Filen er for kort."
 
 #. Resource IDs: (3399)
 msgid "File is truncated or otherwise corrupt. Please use backup database."
-msgstr ""
+msgstr "Filen er afkortet eller på anden måde beskadiget. Brug venligst backup-database."
 
 #. Resource IDs: (5330)
 msgid "File lock error"
@@ -4133,7 +4149,7 @@ msgstr "Gaelic"
 
 #. Resource IDs: (1025, 1467)
 msgid "Generate"
-msgstr ""
+msgstr "Generer"
 
 #. Resource IDs: (32157 - MenuEx)
 msgid "Generate &Password"
@@ -4333,141 +4349,176 @@ msgid "Hungarian 101-key"
 msgstr "Hungarian 101-key"
 
 #. Accelerator Entry for Menu ID:32002; '&Open Another'
+#. Accelerator Entry for Menu ID:32002; '&Open Another'
 msgid "ID:32002:V C +O"
 msgstr "ID:32002:V C +O"
 
+#. Accelerator Entry for Menu ID:32003; '&New...'
 #. Accelerator Entry for Menu ID:32003; '&New...'
 msgid "ID:32003:V C +N"
 msgstr "ID:32003:V C +N"
 
 #. Accelerator Entry for Menu ID:32005; '&Save'
+#. Accelerator Entry for Menu ID:32005; '&Save'
 msgid "ID:32005:V C +S"
 msgstr "ID:32005:V C +S"
 
+#. Accelerator Entry for Menu ID:32021; 'E&xit'
 #. Accelerator Entry for Menu ID:32021; 'E&xit'
 msgid "ID:32021:V C +Q"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32027; '&Lock'
+#. Accelerator Entry for Menu ID:32027; '&Lock'
 msgid "ID:32027:V CS+L"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32051; '&Add Entry...'
 #. Accelerator Entry for Menu ID:32051; '&Add Entry...'
 msgid "ID:32051:V C +A"
 msgstr "ID:32051:V C +A"
 
 #. Accelerator Entry for Menu ID:32063; '&Duplicate Entry'
+#. Accelerator Entry for Menu ID:32063; '&Duplicate Entry'
 msgid "ID:32063:V C +D"
 msgstr "ID:32063:V C +D"
 
+#. Accelerator Entry for Menu ID:32066; '&Copy Password to Clipboard'
 #. Accelerator Entry for Menu ID:32066; '&Copy Password to Clipboard'
 msgid "ID:32066:V C +C"
 msgstr "ID:32066:V C +C"
 
 #. Accelerator Entry for Menu ID:32067; 'Display subset of Password'
+#. Accelerator Entry for Menu ID:32067; 'Display subset of Password'
 msgid "ID:32067:V C +B"
 msgstr "ID:32067:V C +B"
 
+#. Accelerator Entry for Menu ID:32068; 'Copy &Username to Clipboard'
 #. Accelerator Entry for Menu ID:32068; 'Copy &Username to Clipboard'
 msgid "ID:32068:V C +U"
 msgstr "ID:32068:V C +U"
 
 #. Accelerator Entry for Menu ID:32069; 'Copy &Notes to Clipboard'
+#. Accelerator Entry for Menu ID:32069; 'Copy &Notes to Clipboard'
 msgid "ID:32069:V C +G"
 msgstr "ID:32069:V C +G"
 
+#. Accelerator Entry for Menu ID:32070; 'Copy UR&L to Clipboard'
 #. Accelerator Entry for Menu ID:32070; 'Copy UR&L to Clipboard'
 msgid "ID:32070:VAC +L"
 msgstr "ID:32070:VAC +L"
 
 #. Accelerator Entry for Menu ID:32072; '&Browse to URL'
+#. Accelerator Entry for Menu ID:32072; '&Browse to URL'
 msgid "ID:32072:V C +L"
 msgstr "ID:32072:V C +L"
 
+#. Accelerator Entry for Menu ID:32073; 'Browse to URL + &AutoType'
 #. Accelerator Entry for Menu ID:32073; 'Browse to URL + &AutoType'
 msgid "ID:32073:VA  +L"
 msgstr "ID:32073:VA  +L"
 
 #. Accelerator Entry for Menu ID:32074; 'Browse to URL w/Alt Browser'
+#. Accelerator Entry for Menu ID:32074; 'Browse to URL w/Alt Browser'
 msgid "ID:32074:VA S+L"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32075; 'Send &Email'
 #. Accelerator Entry for Menu ID:32075; 'Send &Email'
 msgid "ID:32075:V C +E"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32076; 'Perform Auto&Type'
+#. Accelerator Entry for Menu ID:32076; 'Perform Auto&Type'
 msgid "ID:32076:V C +T"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32077; '&Run Command'
 #. Accelerator Entry for Menu ID:32077; '&Run Command'
 msgid "ID:32077:V C +R"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32080; '&Find...'
+#. Accelerator Entry for Menu ID:32080; '&Find...'
 msgid "ID:32080:V C +F"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32081; 'Copy Run Command to Clipboard'
 #. Accelerator Entry for Menu ID:32081; 'Copy Run Command to Clipboard'
 msgid "ID:32081:VAC +R"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32083; 'Undo'
+#. Accelerator Entry for Menu ID:32083; 'Undo'
 msgid "ID:32083:V C +Z"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32084; 'Redo'
 #. Accelerator Entry for Menu ID:32084; 'Redo'
 msgid "ID:32084:V C +Y"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32099; 'Display Auth Code'
+#. Accelerator Entry for Menu ID:32099; 'Display Auth Code'
 msgid "ID:32099:VAC +2"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32100; 'Copy Aut&h Code to Clipboard'
 #. Accelerator Entry for Menu ID:32100; 'Copy Aut&h Code to Clipboard'
 msgid "ID:32100:VA  +2"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32140; 'Last Find results'
+#. Accelerator Entry for Menu ID:32140; 'Last Find results'
 msgid "ID:32140:V C +K"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32154; '&Options...'
 #. Accelerator Entry for Menu ID:32154; '&Options...'
 msgid "ID:32154:V C +M"
 msgstr "ID:32154:V C +M"
 
 #. Accelerator Entry for Menu ID:32157; 'Cancel'
+#. Accelerator Entry for Menu ID:32157; 'Cancel'
 msgid "ID:32157:V C +P"
 msgstr "ID:32157:V C +P"
 
+#. Accelerator Entry for Menu ID:32302; 'Clear Find'
 #. Accelerator Entry for Menu ID:32302; 'Clear Find'
 msgid "ID:32302:VAC +C"
 msgstr "ID:32302:VAC +C"
 
 #. Accelerator Entry for Menu ID:32304; ''
+#. Accelerator Entry for Menu ID:32304; ''
 msgid "ID:32304:VAC +S"
 msgstr "ID:32304:VAC +S"
 
+#. Accelerator Entry for Menu ID:32307; 'Advanced Find Options'
 #. Accelerator Entry for Menu ID:32307; 'Advanced Find Options'
 msgid "ID:32307:VAC +A"
 msgstr "ID:32307:VAC +A"
 
 #. Accelerator Entry for Menu ID:32500; ''
+#. Accelerator Entry for Menu ID:32500; ''
 msgid "ID:32500:V C +C"
 msgstr "ID:32500:V C +C"
 
+#. Accelerator Entry for Menu ID:32501; ''
 #. Accelerator Entry for Menu ID:32501; ''
 msgid "ID:32501:V C +E"
 msgstr "ID:32501:V C +E"
 
 #. Accelerator Entry for Menu ID:32502; ''
+#. Accelerator Entry for Menu ID:32502; ''
 msgid "ID:32502:V C +F"
 msgstr "ID:32502:V C +F"
 
 #. Accelerator Entry for Menu ID:32503; ''
+#. Accelerator Entry for Menu ID:32503; ''
 msgid "ID:32503:V C +L"
 msgstr "ID:32503:V C +L"
 
+#. Accelerator Entry for Menu ID:32504; ''
 #. Accelerator Entry for Menu ID:32504; ''
 msgid "ID:32504:V C +S"
 msgstr "ID:32504:V C +S"
@@ -4627,13 +4678,15 @@ msgstr "Forkert filnavn."
 
 #. Resource IDs: (5334)
 msgid "Incorrect master password"
-msgstr ""
+msgstr "Forkert hovedadgangskode"
 
 #. Resource IDs: (5280)
 msgid ""
 "Incorrect master password, not a Password Safe database,\n"
 "or a corrupt database."
 msgstr ""
+"Forkert hovedadgangskode, ikke en adgangskodesikker database,\n"
+"eller en korrupt database."
 
 #. Resource IDs: (3251)
 msgid "Incorrect password"
@@ -4949,7 +5002,7 @@ msgstr ""
 
 #. Resource IDs: (5113)
 msgid "Locking clears the memory but excludes undo and redo information that can still be used on unlocking of the database."
-msgstr ""
+msgstr "Låsning rydder hukommelsen, men udelukker fortryd og gentag oplysninger, der stadig kan bruges til at låse databasen op."
 
 #. Resource IDs: (1413)
 msgid "MBytes"
@@ -5364,7 +5417,7 @@ msgstr "Bemærk, at hvis du vælger at gendanne de automatisk gemte dokumenter, 
 #. Resource IDs: (5114)
 #, c-format
 msgid "Note that you can use an environment variable too, e.g., %TEMP%"
-msgstr ""
+msgstr "Bemærk, at du også kan bruge en miljøvariabel, f.eks. %TEMP%"
 
 #. Resource IDs: (33150 - Menu)
 msgid "Note: Empty fields are shown as « »"
@@ -5703,7 +5756,7 @@ msgstr "Password Safe - <Ubetitlet Gendannet Sikkerhedskopi>"
 
 #. Resource IDs: (132)
 msgid "Password Safe - Enter Master Password"
-msgstr ""
+msgstr "Adgangskode sikker - Indtast hovedadgangskode"
 
 #. Resource IDs: (5955)
 msgid "Password Safe Application HotKey"
@@ -5747,7 +5800,7 @@ msgstr "Adgangskode [Oblikatorisk Felt]"
 
 #. Resource IDs: (6048)
 msgid "Password copied to clipboard"
-msgstr ""
+msgstr "Adgangskode kopieret til udklipsholder"
 
 #. Resource IDs: (5455)
 msgid "Password implies this is an alias entry, but "
@@ -5803,7 +5856,7 @@ msgstr ""
 
 #. Resource IDs: (5822)
 msgid "PasswordSafe: Entries exist with expired or soon-to-expire passwords"
-msgstr ""
+msgstr "PasswordSafe: Der findes poster med udløbne eller snart udløbne adgangskoder"
 
 #. Resource IDs: (32076 - Menu, 32076 - MenuEx, 5296)
 msgid "Perform Auto&Type"
@@ -6725,7 +6778,7 @@ msgstr ""
 
 #. Resource IDs: (5821)
 msgid "Some of the entries in this database have passwords that have expired or are about to.  Do you wish to list them and possibly update them?"
-msgstr ""
+msgstr "Nogle af posterne i denne database har adgangskoder, der er udløbet eller er ved at være ved at gøre det.  Ønsker du at liste dem og eventuelt opdatere dem?"
 
 #. Resource IDs: (8313)
 msgid "Sorbian Standard"
@@ -7048,6 +7101,10 @@ msgstr "Ctrl- og Shift-tasterne er blevet tilføjet."
 msgid "The Ctrl key has been added."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "The Master Password will be used to protect the new password database file."
+msgstr "Hovedadgangskoden bruges til at beskytte den nye adgangskodedatabasefil."
+
 #. Resource IDs: (3424)
 msgid ""
 "The TXT or CSV file was not imported as required as entry records span multiple lines in the CSV file.\n"
@@ -7174,7 +7231,7 @@ msgstr ""
 
 #. Resource IDs: (3262)
 msgid "The following columns are unrecognized by PasswordSafe and will be ignored: "
-msgstr ""
+msgstr "Følgende kolonner genkendes ikke af PasswordSafe og ignoreres: "
 
 #. Resource IDs: (3375)
 msgid "The following columns were recognised but only Group/Title, Username and Password will be processed:"
@@ -7644,7 +7701,7 @@ msgstr "Ude af stand til at gemme konfigurations fil"
 
 #. Resource IDs: (5484)
 msgid "Unable to send Email"
-msgstr ""
+msgstr "Kan ikke sende e-mail"
 
 #. Resource IDs: (3030)
 msgid ""
@@ -7907,11 +7964,11 @@ msgstr "Bruger kopieret "
 
 #. Resource IDs: (3004)
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 #. Resource IDs: (65535)
 msgid "Username:"
-msgstr ""
+msgstr "Brugernavn:"
 
 #. Resource IDs: (65535)
 msgid "Using application:"
@@ -7982,7 +8039,7 @@ msgstr "Se vedhæftet fil"
 
 #. Resource IDs: (6053)
 msgid "View Base entry"
-msgstr ""
+msgstr "Vis basispost"
 
 #. Resource IDs: (32220 - Menu, 5261)
 msgid "View Entry"

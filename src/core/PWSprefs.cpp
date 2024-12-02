@@ -222,7 +222,7 @@ const PWSprefs::stringPref PWSprefs::m_string_prefs[NumStringPrefs] = {
   {_T("AddEditSampleText"), _T("AaBbYyZz 0O1IlL"), ptApplication},  // application
   {_T("AltNotesEditorCmdLineParms"), _T(""), ptApplication},        // application
   {_T("TreeSort"), _T("group"), ptApplication},                     // application
-
+  {_T("ActiveFilterName"), _T(""), ptDatabase},                     // database
 };
 
 PWSprefs *PWSprefs::GetInstance()
@@ -262,7 +262,7 @@ PWSprefs::PWSprefs() : m_pXML_Config(nullptr)
   m_PSSrect.top = m_PSSrect.bottom = m_PSSrect.left = m_PSSrect.right = -1;
   m_PSSrect.changed = false;
 
-  m_MRUitems.reserve(m_int_prefs[MaxMRUItems].maxVal);
+  m_MRUitems.resize(m_int_prefs[MaxMRUItems].maxVal);
   InitializePreferences();
 }
 
@@ -417,7 +417,7 @@ void PWSprefs::GetPrefPSSRect(long &top, long &bottom,
 
 unsigned int PWSprefs::GetMRUList(std::vector<stringT> &MRUFiles) const
 {
-  if (m_ConfigOption == CF_NONE || m_ConfigOption == CF_REGISTRY) {
+  if (m_ConfigOption == CF_NONE || m_ConfigOption == CF_REGISTRY || m_ConfigOption == CF_FILE_RW_NEW) {
     MRUFiles.clear();
     return 0;
   }
@@ -428,7 +428,7 @@ unsigned int PWSprefs::GetMRUList(std::vector<stringT> &MRUFiles) const
   if (MRUFiles.size() > n)
     MRUFiles.erase(MRUFiles.begin() + n, MRUFiles.end());
  
-  return n;
+  return static_cast<unsigned int>(MRUFiles.size());
 }
 
 unsigned int PWSprefs::SetMRUList(const std::vector<stringT> &MRUFiles, int max_MRU)
@@ -1489,9 +1489,15 @@ bool PWSprefs::LoadProfileFromFile()
   m_PrefLayout = m_pXML_Config->Get(m_csHKCU_PREF, _T("Layout"), L"");
 
   // Load most recently used file list
+  if (m_MRUitems.size() < m_intValues[MaxMRUItems])
+    m_MRUitems.resize(m_intValues[MaxMRUItems]);
   for (i = m_intValues[MaxMRUItems]; i > 0; i--) {
     Format(csSubkey, L"Safe%02d", i);
-    m_MRUitems.push_back(m_pXML_Config->Get(m_csHKCU_MRU, csSubkey, L""));
+    auto value = m_pXML_Config->Get(m_csHKCU_MRU, csSubkey, L"");
+    if (!value.empty())
+    {
+      m_MRUitems[i-1] = value;
+    }
   }
 
   m_vShortcuts = m_pXML_Config->GetShortcuts(m_csHKCU_SHCT);

@@ -16,7 +16,7 @@
 #include "Item.h"
 #include "PWSprefs.h"
 #include "PWPolicy.h"
-#include "os/UUID.h"
+#include "../os/UUID.h"
 #include "StringX.h"
 #include "TotpCore.h"
 
@@ -125,6 +125,8 @@ public:
   time_t GetTotpStartTimeAsTimeT() const { time_t t;  CItem::GetTime(TOTPSTARTTIME, t); return t; }
   StringX GetTotpStartTime() const { return GetTime(TOTPSTARTTIME, PWSUtil::TMC_ASC_UNKNOWN, true, true); }
   bool IsTotpStartTimeDefault() const { return GetTotpStartTimeAsTimeT() == 0; }
+  StringX GetTotpAuthCode(time_t* pBasisTimeNow = nullptr, double* pRatioExpired = nullptr) const;
+
 
   StringX GetNotes(TCHAR delimiter = 0) const;
   void GetUUID(uuid_array_t &, FieldType ft = END) const; // V20
@@ -208,6 +210,7 @@ public:
   void UpdatePassword(const StringX &password); // use when password changed!
   void SetTwoFactorKey(const StringX& value) { CItem::SetField(TWOFACTORKEY, value); }
   bool SetTotpConfig(const StringX& value) { return SetFieldAsByte(TOTPCONFIG, value.c_str()); }
+  void SetTotpStartTime(time_t t) { CItem::SetTime(TOTPSTARTTIME, t); }
   bool SetTotpStartTime(const StringX& value) { return SetTime(TOTPSTARTTIME, value.c_str(), true); }
   bool SetTotpTimeStep(const StringX& value) { return SetFieldAsByte(TOTPTIMESTEP, value.c_str()); }
   bool SetTotpLength(const StringX& value) { return SetFieldAsByte(TOTPLENGTH, value.c_str()); }
