@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -372,7 +372,6 @@
 		E0A70B9621C8FF8900A2FEA8 /* PolicyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolicyManager.cpp; sourceTree = "<group>"; };
 		E0A70B9721C8FF8900A2FEA8 /* PolicyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyManager.h; sourceTree = "<group>"; };
 		E0A70B9A21C905A500A2FEA8 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
-		E0C3C4512379CD8300715124 /* CoreAlias.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CoreAlias.cpp; sourceTree = "<group>"; };
 		E0C3C42F2379B2C200715124 /* AES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AES.cpp; path = crypto/AES.cpp; sourceTree = "<group>"; };
 		E0C3C4302379B2C200715124 /* AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AES.h; path = crypto/AES.h; sourceTree = "<group>"; };
 		E0C3C4312379B2C200715124 /* bitops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitops.h; path = crypto/bitops.h; sourceTree = "<group>"; };
@@ -393,6 +392,7 @@
 		E0C3C44A2379CA2A00715124 /* CryptKeyEntryDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CryptKeyEntryDlg.cpp; sourceTree = "<group>"; };
 		E0C3C44B2379CA2A00715124 /* CryptKeyEntryDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptKeyEntryDlg.h; sourceTree = "<group>"; };
 		E0C3C44D2379CA7300715124 /* MenuFileHandlers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuFileHandlers.cpp; sourceTree = "<group>"; };
+		E0C3C4512379CD8300715124 /* CoreAlias.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CoreAlias.cpp; sourceTree = "<group>"; };
 		E60F25D612C4ACEB001E63C4 /* ExternalKeyboardButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExternalKeyboardButton.cpp; sourceTree = "<group>"; };
 		E60F25D712C4ACEB001E63C4 /* ExternalKeyboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalKeyboardButton.h; sourceTree = "<group>"; };
 		E6112A61131D720E00AA1454 /* ExpiredList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExpiredList.cpp; sourceTree = "<group>"; };
@@ -1800,7 +1800,8 @@
 		E6ADB7F0119569CC004E2BE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1420;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = "Open Source Software";
 				TargetAttributes = {
 					E66D292E1D02B49B00C9BCBF = {
@@ -2135,6 +2136,7 @@
 		5754133A2B16717C00507BC5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2161,6 +2163,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_SOURCE_FILE_NAMES = "*Yubi*";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2359,6 +2362,7 @@
 		E6ADB7F1119569CC004E2BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2385,6 +2389,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_SOURCE_FILE_NAMES = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2411,6 +2416,7 @@
 		E6ADB7F2119569CC004E2BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2439,6 +2445,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_SOURCE_FILE_NAMES = "";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
