@@ -29,7 +29,7 @@ jobs:
       # "WX_DEBUG_FLAG: --enable-debug --enable-debug_info"
       # "XCODE_CONFIG:  Debug"
       # "XCODE_CONFIG:  Debug-no-yubi"
-      WX_VERS:          3.2.6
+      WX_VERS:          3.2.7
       WX_SRC_DIR:       ${{ github.workspace }}/wxWidgets
       WX_BUILD_DIR:     ${{ github.workspace }}/wxWidgets/static-release
       WX_ARCH:          "arm64,x86_64"
@@ -37,7 +37,7 @@ jobs:
       MACOS_VER_MIN:    10.14
       XCODE_VER:        16.2
       XCODE_CONFIG:     Release
-      FORCE_REBUILD_WX: 7
+      FORCE_REBUILD_WX: 1
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
