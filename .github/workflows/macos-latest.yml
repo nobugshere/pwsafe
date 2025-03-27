@@ -123,7 +123,7 @@ jobs:
 
     - name: Build and run coretest
       working-directory: src/test
-      run: make -f Makefile.macos
+      run: make -f Makefile.macos -j $HOST_NCPU
 
     - name: Install language files and create dmg
       working-directory: install/macosx
