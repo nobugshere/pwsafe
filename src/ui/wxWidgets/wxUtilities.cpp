@@ -227,7 +227,7 @@ SafeCombinationCtrl* wxUtilities::CreateLabeledSafeCombinationCtrl(wxWindow* par
   auto *sizer = new wxBoxSizer(wxVERTICAL);
   parent->GetSizer()->Add(sizer, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND, 12);
 
-  auto *labelCtrl = new wxStaticText(parent, wxID_STATIC, _(label), wxDefaultPosition, wxDefaultSize, 0);
+  auto *labelCtrl = new wxStaticText(parent, wxID_STATIC, label, wxDefaultPosition, wxDefaultSize, 0);
   sizer->Add(labelCtrl, 0, wxBOTTOM|wxALIGN_LEFT, 5);
 
   auto *safeCombinationCtrl = new SafeCombinationCtrl(parent, id, password, wxDefaultPosition, wxDefaultSize);
@@ -549,15 +549,15 @@ ImagePanel::~ImagePanel()
 
 bool ImagePanel::LoadFromAttachment(const CItemAtt& itemAttachment, wxWindow* parent, const wxString& messageBoxTitle)
 {
-  auto size = itemAttachment.GetContentSize();
+  const auto size = itemAttachment.GetContentSize();
 
   if (size <= 0) {
     return false;
   }
 
-  unsigned char buffer[size];
+  std::unique_ptr<unsigned char[]> buffer(new unsigned char[size]);
 
-  if (!itemAttachment.GetContent(buffer, size)) {
+  if (!itemAttachment.GetContent(buffer.get(), size)) {
     wxMessageDialog(
       parent,
       _("An error occurred while trying to get the image data from database item.\n"
@@ -568,7 +568,7 @@ bool ImagePanel::LoadFromAttachment(const CItemAtt& itemAttachment, wxWindow* pa
     return false;
   }
 
-  wxMemoryInputStream stream(&buffer, size);
+  wxMemoryInputStream stream(buffer.get(), size);
 
   if (!LoadFromMemory(stream)) {
     wxMessageDialog(
