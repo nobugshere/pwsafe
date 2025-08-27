@@ -451,6 +451,14 @@
 		A2FE25941C5ACFBD00210C36 /* PWStime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWStime.h; sourceTree = "<group>"; };
 		A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryCancelDlg.cpp; sourceTree = "<group>"; };
 		A6F2B3352832B0380096A7E4 /* QueryCancelDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCancelDlg.h; sourceTree = "<group>"; };
+		ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		ACFE7E402E5FA7F300718139 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		ACFE7E412E5FA7F300718139 /* cpane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cpane.png; sourceTree = "<group>"; };
+		ACFE7E422E5FA7F300718139 /* cpane logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "cpane logo.svg"; sourceTree = "<group>"; };
+		ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWSafeLogo.pxd; sourceTree = "<group>"; };
+		ACFE7E442E5FA7F300718139 /* PWSafeLogo 2025-07-21.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PWSafeLogo 2025-07-21.svg"; sourceTree = "<group>"; };
+		ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PWSafeLogo256x256.png; sourceTree = "<group>"; };
+		ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "README Xcode App Icons.txt"; sourceTree = "<group>"; };
 		CFCF44E69E4F10C70F501F84 /* base32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base32.h; path = crypto/external/Chromium/base32.h; sourceTree = "<group>"; };
 		D3012932262C731500FDF023 /* PWFiltersStringDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PWFiltersStringDlg.cpp; sourceTree = "<group>"; };
 		D3012933262C731500FDF023 /* PWFiltersStringDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWFiltersStringDlg.h; sourceTree = "<group>"; };
@@ -1114,6 +1122,21 @@
 			path = ../src/test/data;
 			sourceTree = SOURCE_ROOT;
 		};
+		ACFE7E472E5FA7F300718139 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */,
+				ACFE7E402E5FA7F300718139 /* AppIcon.icon */,
+				ACFE7E412E5FA7F300718139 /* cpane.png */,
+				ACFE7E422E5FA7F300718139 /* cpane logo.svg */,
+				ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */,
+				ACFE7E442E5FA7F300718139 /* PWSafeLogo 2025-07-21.svg */,
+				ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */,
+				ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */,
+			);
+			path = AppIcon;
+			sourceTree = "<group>";
+		};
 		D395E037264FEDD200F049B1 /* Pugi */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1246,7 @@
 		E690B1031297D76E007EA508 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ACFE7E472E5FA7F300718139 /* AppIcon */,
 				579BDA4E2C55F0A1004C727B /* Assets.xcassets */,
 				E690B95612984B1D007EA508 /* helpEN.zip */,
 				E690B55C12984A1A007EA508 /* pwsafe_filter.xsd */,
