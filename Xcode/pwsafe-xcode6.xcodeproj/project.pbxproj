@@ -82,6 +82,7 @@
 		A2FE25921C5ACF7500210C36 /* PWSfileV4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FE258B1C5ACF7500210C36 /* PWSfileV4.cpp */; };
 		A2FE25951C5ACFBD00210C36 /* PWStime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FE25931C5ACFBD00210C36 /* PWStime.cpp */; };
 		A6F2B3362832B0380096A7E4 /* QueryCancelDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */; };
+		AC2B77442E5FC03100778172 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = AC372CE62E5FB70F0081AA3A /* AppIcon.icon */; };
 		B84A41C2A9CBBC9791F9B2DF /* base32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1417792CF637AD3D45F4D /* base32.cpp */; };
 		D3012934262C731500FDF023 /* PWFiltersStringDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3012932262C731500FDF023 /* PWFiltersStringDlg.cpp */; };
 		D31B027926384D29000EAA61 /* PWFiltersMediaDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D31B027726384D29000EAA61 /* PWFiltersMediaDlg.cpp */; };
@@ -451,8 +452,8 @@
 		A2FE25941C5ACFBD00210C36 /* PWStime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWStime.h; sourceTree = "<group>"; };
 		A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryCancelDlg.cpp; sourceTree = "<group>"; };
 		A6F2B3352832B0380096A7E4 /* QueryCancelDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCancelDlg.h; sourceTree = "<group>"; };
+		AC372CE62E5FB70F0081AA3A /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		ACFE7E402E5FA7F300718139 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		ACFE7E412E5FA7F300718139 /* cpane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cpane.png; sourceTree = "<group>"; };
 		ACFE7E422E5FA7F300718139 /* cpane logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "cpane logo.svg"; sourceTree = "<group>"; };
 		ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWSafeLogo.pxd; sourceTree = "<group>"; };
@@ -1122,11 +1123,11 @@
 			path = ../src/test/data;
 			sourceTree = SOURCE_ROOT;
 		};
-		ACFE7E472E5FA7F300718139 /* AppIcon */ = {
+		ACFE7E472E5FA7F300718139 /* AppIconFiles */ = {
 			isa = PBXGroup;
 			children = (
+				AC372CE62E5FB70F0081AA3A /* AppIcon.icon */,
 				ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */,
-				ACFE7E402E5FA7F300718139 /* AppIcon.icon */,
 				ACFE7E412E5FA7F300718139 /* cpane.png */,
 				ACFE7E422E5FA7F300718139 /* cpane logo.svg */,
 				ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */,
@@ -1134,7 +1135,7 @@
 				ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */,
 				ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */,
 			);
-			path = AppIcon;
+			path = AppIconFiles;
 			sourceTree = "<group>";
 		};
 		D395E037264FEDD200F049B1 /* Pugi */ = {
@@ -1246,7 +1247,7 @@
 		E690B1031297D76E007EA508 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ACFE7E472E5FA7F300718139 /* AppIcon */,
+				ACFE7E472E5FA7F300718139 /* AppIconFiles */,
 				579BDA4E2C55F0A1004C727B /* Assets.xcassets */,
 				E690B95612984B1D007EA508 /* helpEN.zip */,
 				E690B55C12984A1A007EA508 /* pwsafe_filter.xsd */,
@@ -2119,6 +2120,7 @@
 				E690B56012984A1B007EA508 /* pwsafe.xsd in Resources */,
 				E690B56112984A1B007EA508 /* pwsafe.xsl in Resources */,
 				579BDA4F2C55F0A1004C727B /* Assets.xcassets in Resources */,
+				AC2B77442E5FC03100778172 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2481,6 +2483,7 @@
 /* Begin XCBuildConfiguration section */
 		5754133A2B16717C00507BC5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2536,7 +2539,6 @@
 		};
 		5754133B2B16717C00507BC5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2570,10 +2572,10 @@
 		};
 		5754133D2B16717C00507BC5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_OTHER_FLAGS = "--enable-icon-stack-fallback-generation=disabled";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = pwsafe.entitlements;
@@ -2606,7 +2608,6 @@
 		};
 		5754133F2B16717C00507BC5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2629,7 +2630,6 @@
 		};
 		5762BC202DE7E26800322CA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2659,7 +2659,6 @@
 		};
 		5762BC212DE7E26800322CA5 /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2689,7 +2688,6 @@
 		};
 		5762BC222DE7E26800322CA5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2718,7 +2716,6 @@
 		};
 		579723692DDD5E5A001582BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2748,7 +2745,6 @@
 		};
 		5797236A2DDD5E5A001582BE /* Debug-no-yubi */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2778,7 +2774,6 @@
 		};
 		5797236B2DDD5E5A001582BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2807,7 +2802,6 @@
 		};
 		E66D29331D02B49B00C9BCBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2830,7 +2824,6 @@
 		};
 		E66D29341D02B49B00C9BCBF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2874,6 +2867,7 @@
 		};
 		E6ADB7F1119569CC004E2BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2928,6 +2922,7 @@
 		};
 		E6ADB7F2119569CC004E2BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -2984,7 +2979,6 @@
 		};
 		E6ADB80511956A93004E2BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -3001,7 +2995,6 @@
 		};
 		E6ADB80611956A93004E2BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -3050,10 +3043,10 @@
 		};
 		E6ADB9A11195706B004E2BE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541311A01150D00BC85E1 /* pwsafe-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_OTHER_FLAGS = "--enable-icon-stack-fallback-generation=disabled";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = pwsafe.entitlements;
@@ -3079,10 +3072,10 @@
 		};
 		E6ADB9A21195706B004E2BE5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69541321A01150D00BC85E1 /* pwsafe-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_OTHER_FLAGS = "--enable-icon-stack-fallback-generation=disabled";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = pwsafe.entitlements;
