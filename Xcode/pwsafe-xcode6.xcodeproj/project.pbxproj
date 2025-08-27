@@ -85,6 +85,7 @@
 		A2FE25921C5ACF7500210C36 /* PWSfileV4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FE258B1C5ACF7500210C36 /* PWSfileV4.cpp */; };
 		A2FE25951C5ACFBD00210C36 /* PWStime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FE25931C5ACFBD00210C36 /* PWStime.cpp */; };
 		A6F2B3362832B0380096A7E4 /* QueryCancelDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */; };
+		AC2B77442E5FC03100778172 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = AC372CE62E5FB70F0081AA3A /* AppIcon.icon */; };
 		B84A41C2A9CBBC9791F9B2DF /* base32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1417792CF637AD3D45F4D /* base32.cpp */; };
 		D3012934262C731500FDF023 /* PWFiltersStringDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3012932262C731500FDF023 /* PWFiltersStringDlg.cpp */; };
 		D31B027926384D29000EAA61 /* PWFiltersMediaDlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D31B027726384D29000EAA61 /* PWFiltersMediaDlg.cpp */; };
@@ -450,8 +451,8 @@
 		A2FE25941C5ACFBD00210C36 /* PWStime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWStime.h; sourceTree = "<group>"; };
 		A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryCancelDlg.cpp; sourceTree = "<group>"; };
 		A6F2B3352832B0380096A7E4 /* QueryCancelDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCancelDlg.h; sourceTree = "<group>"; };
+		AC372CE62E5FB70F0081AA3A /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		ACFE7E402E5FA7F300718139 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		ACFE7E412E5FA7F300718139 /* cpane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cpane.png; sourceTree = "<group>"; };
 		ACFE7E422E5FA7F300718139 /* cpane logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "cpane logo.svg"; sourceTree = "<group>"; };
 		ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWSafeLogo.pxd; sourceTree = "<group>"; };
@@ -1120,11 +1121,11 @@
 			path = ../src/test/data;
 			sourceTree = SOURCE_ROOT;
 		};
-		ACFE7E472E5FA7F300718139 /* AppIcon */ = {
+		ACFE7E472E5FA7F300718139 /* AppIconFiles */ = {
 			isa = PBXGroup;
 			children = (
+				AC372CE62E5FB70F0081AA3A /* AppIcon.icon */,
 				ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */,
-				ACFE7E402E5FA7F300718139 /* AppIcon.icon */,
 				ACFE7E412E5FA7F300718139 /* cpane.png */,
 				ACFE7E422E5FA7F300718139 /* cpane logo.svg */,
 				ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */,
@@ -1132,7 +1133,7 @@
 				ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */,
 				ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */,
 			);
-			path = AppIcon;
+			path = AppIconFiles;
 			sourceTree = "<group>";
 		};
 		D395E037264FEDD200F049B1 /* Pugi */ = {
@@ -1244,7 +1245,7 @@
 		E690B1031297D76E007EA508 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ACFE7E472E5FA7F300718139 /* AppIcon */,
+				ACFE7E472E5FA7F300718139 /* AppIconFiles */,
 				579BDA4E2C55F0A1004C727B /* Assets.xcassets */,
 				E690B95612984B1D007EA508 /* helpEN.zip */,
 				E690B55C12984A1A007EA508 /* pwsafe_filter.xsd */,
@@ -2119,6 +2120,7 @@
 				E690B56012984A1B007EA508 /* pwsafe.xsd in Resources */,
 				E690B56112984A1B007EA508 /* pwsafe.xsl in Resources */,
 				579BDA4F2C55F0A1004C727B /* Assets.xcassets in Resources */,
+				AC2B77442E5FC03100778172 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
