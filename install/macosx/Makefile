@@ -91,7 +91,7 @@ dist: clean
 			--background ./background_flat_icon.png \
 			--icon-size 40 \
 			--volname "Password Safe" \
-			--volicon ../../Xcode/AppIcon/AppIcon.icns \
+			--volicon ../../Xcode/AppIconFiles/AppIcon.icns \
 			--eula ../../LICENSE \
 			--icon "$(PWSAFE-APP)" 00 110 \
 			--app-drop-link 180 110 \
