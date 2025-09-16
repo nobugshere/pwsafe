@@ -21,7 +21,7 @@ jobs:
   build_mac_pwsafe:
     name: Build pwsafe for macOS
     # The type of runner that the job will run on
-    runs-on: macos-15
+    runs-on: macos-26
 
     env:
       # If you need to rebuild wxWidgets for some reason, say you changed the build params, just increment FORCE_REBUILD_WX
