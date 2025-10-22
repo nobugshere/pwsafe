@@ -35,7 +35,7 @@ jobs:
       WX_ARCH:          "arm64,x86_64"
       WX_DEBUG_FLAG:    "--disable-debug"
       MACOS_VER_MIN:    10.14
-      XCODE_VER:        "26.0"
+      XCODE_VER:        "26.1"
       XCODE_CONFIG:     Release
       XCODE_DIR:        ${{ github.workspace }}/xcderived
       XCODE_PROD:       ${{ github.workspace }}/xcderived/Build/Products
