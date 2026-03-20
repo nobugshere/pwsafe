@@ -29,7 +29,8 @@ jobs:
       # "WX_DEBUG_FLAG: --enable-debug --enable-debug_info"
       # "XCODE_CONFIG:  Debug"
       # "XCODE_CONFIG:  Debug-no-yubi"
-      WX_VERS:          3.2.8
+      # WX_VERS can be a tag or branch name
+      WX_VERS:          "v3.2.10"
       WX_SRC_DIR:       ${{ github.workspace }}/wxWidgets
       WX_BUILD_DIR:     ${{ github.workspace }}/wxWidgets/static-release
       WX_ARCH:          "arm64,x86_64"
@@ -44,7 +45,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Set additional build parameters
       run: |
@@ -87,7 +88,7 @@ jobs:
 
     - name: Cache wxWidgets build
       id: cache-wxWidgets-build
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: |
           ${{ env.WX_BUILD_DIR }}
@@ -96,7 +97,7 @@ jobs:
 
     - name: Checkout wxWidgets
       if: steps.cache-wxWidgets-build.outputs.cache-hit != 'true'
-      run: git clone --branch v$WX_VERS --single-branch https://github.com/wxWidgets/wxWidgets.git $WX_SRC_DIR
+      run: git clone --branch $WX_VERS --single-branch https://github.com/wxWidgets/wxWidgets.git $WX_SRC_DIR
 
     - name: Build wxWidgets
       if: steps.cache-wxWidgets-build.outputs.cache-hit != 'true'
@@ -136,7 +137,7 @@ jobs:
       run: make RELDIR=$XCODE_PROD/$XCODE_CONFIG
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: PasswordSafe-macOS.${{ github.sha }}
         path: PasswordSafe-macOS*.dmg
