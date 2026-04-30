@@ -20,3 +20,4 @@ pwsafe*.msi
 .vscode
 *.swp
 *dmg
+.DS_Store
