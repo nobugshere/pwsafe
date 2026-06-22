@@ -21,7 +21,7 @@ jobs:
   build_mac_pwsafe:
     name: Build pwsafe for macOS
     # The type of runner that the job will run on
-    runs-on: macos-15
+    runs-on: macos-26
 
     env:
       # If you need to rebuild wxWidgets for some reason, say you changed the build params, just increment FORCE_REBUILD_WX
@@ -36,7 +36,7 @@ jobs:
       WX_ARCH:          "arm64,x86_64"
       WX_DEBUG_FLAG:    "--disable-debug"
       MACOS_VER_MIN:    10.14
-      XCODE_VER:        16.4
+      XCODE_VER:        "26.5"
       XCODE_CONFIG:     Release
       XCODE_DIR:        ${{ github.workspace }}/xcderived
       XCODE_PROD:       ${{ github.workspace }}/xcderived/Build/Products
