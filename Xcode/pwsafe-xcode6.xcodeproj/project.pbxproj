@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -1031,6 +1031,9 @@
 				AC5EDDE42FFED65D0073460C /* IOKit.framework in Frameworks */,
 				AC5EDDE82FFED6B00073460C /* QuartzCore.framework in Frameworks */,
 				5762BC1B2DE7E26800322CA5 /* AppKit.framework in Frameworks */,
+				AC2DD4832FF0F44A00D6615D /* Carbon.framework in Frameworks */,
+				AC2DD4852FF0F45900D6615D /* IOKit.framework in Frameworks */,
+				AC2DD4842FF0F45100D6615D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1060,9 @@
 				AC5EDDEA2FFED6F20073460C /* IOKit.framework in Frameworks */,
 				AC5EDDE92FFED6E50073460C /* QuartzCore.framework in Frameworks */,
 				5700B9932DF260210067D2D9 /* AppKit.framework in Frameworks */,
+				AC2DD4812FF0F32D00D6615D /* Carbon.framework in Frameworks */,
+				AC2DD47E2FF0F2D600D6615D /* IOKit.framework in Frameworks */,
+				AC2DD4822FF0F3A400D6615D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
