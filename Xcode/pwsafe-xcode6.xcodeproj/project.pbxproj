@@ -456,14 +456,7 @@
 		A2FE25941C5ACFBD00210C36 /* PWStime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWStime.h; sourceTree = "<group>"; };
 		A6F2B3342832B0380096A7E4 /* QueryCancelDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryCancelDlg.cpp; sourceTree = "<group>"; };
 		A6F2B3352832B0380096A7E4 /* QueryCancelDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCancelDlg.h; sourceTree = "<group>"; };
-		AC372CE62E5FB70F0081AA3A /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		ACFE7E412E5FA7F300718139 /* cpane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cpane.png; sourceTree = "<group>"; };
-		ACFE7E422E5FA7F300718139 /* cpane logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "cpane logo.svg"; sourceTree = "<group>"; };
-		ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWSafeLogo.pxd; sourceTree = "<group>"; };
-		ACFE7E442E5FA7F300718139 /* PWSafeLogo 2025-07-21.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PWSafeLogo 2025-07-21.svg"; sourceTree = "<group>"; };
-		ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PWSafeLogo256x256.png; sourceTree = "<group>"; };
-		ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "README Xcode App Icons.txt"; sourceTree = "<group>"; };
+		AC0AB0202FE8F15700815D97 /* README.MAC.DEVELOPERS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.MAC.DEVELOPERS.md; path = ../docs/README.MAC.DEVELOPERS.md; sourceTree = SOURCE_ROOT; };
 		CFCF44E69E4F10C70F501F84 /* base32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base32.h; path = crypto/external/Chromium/base32.h; sourceTree = "<group>"; };
 		D3012932262C731500FDF023 /* PWFiltersStringDlg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PWFiltersStringDlg.cpp; sourceTree = "<group>"; };
 		D3012933262C731500FDF023 /* PWFiltersStringDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWFiltersStringDlg.h; sourceTree = "<group>"; };
@@ -1013,6 +1006,20 @@
 		E6F8DC211D132657007DFBEC /* RUEList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUEList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AC0AB01F2FE8EFD700815D97 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIcon.icon,
+			);
+			target = E6ADB99D1195706A004E2BE5 /* pwsafe */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AC0AB01D2FE8EFD600815D97 /* AppIconFiles */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AC0AB01F2FE8EFD700815D97 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = AppIconFiles; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		5762BC152DE7E26800322CA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -1133,21 +1140,6 @@
 			path = ../src/test/data;
 			sourceTree = SOURCE_ROOT;
 		};
-		ACFE7E472E5FA7F300718139 /* AppIconFiles */ = {
-			isa = PBXGroup;
-			children = (
-				AC372CE62E5FB70F0081AA3A /* AppIcon.icon */,
-				ACFE7E3F2E5FA7F300718139 /* AppIcon.icns */,
-				ACFE7E412E5FA7F300718139 /* cpane.png */,
-				ACFE7E422E5FA7F300718139 /* cpane logo.svg */,
-				ACFE7E432E5FA7F300718139 /* PWSafeLogo.pxd */,
-				ACFE7E442E5FA7F300718139 /* PWSafeLogo 2025-07-21.svg */,
-				ACFE7E452E5FA7F300718139 /* PWSafeLogo256x256.png */,
-				ACFE7E462E5FA7F300718139 /* README Xcode App Icons.txt */,
-			);
-			path = AppIconFiles;
-			sourceTree = "<group>";
-		};
 		D395E037264FEDD200F049B1 /* Pugi */ = {
 			isa = PBXGroup;
 			children = (
@@ -1258,7 +1250,7 @@
 		E690B1031297D76E007EA508 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ACFE7E472E5FA7F300718139 /* AppIconFiles */,
+				AC0AB01D2FE8EFD600815D97 /* AppIconFiles */,
 				579BDA4E2C55F0A1004C727B /* Assets.xcassets */,
 				E690B95612984B1D007EA508 /* helpEN.zip */,
 				E690B55C12984A1A007EA508 /* pwsafe_filter.xsd */,
@@ -1570,6 +1562,7 @@
 			children = (
 				57C329E82A0715F500454292 /* ReleaseNotes.md */,
 				57C329E72A070EFD00454292 /* ReleaseNotesWX.md */,
+				AC0AB0202FE8F15700815D97 /* README.MAC.DEVELOPERS.md */,
 				57218E8429C98475000B1907 /* pwsafe.entitlements */,
 				E6069D0319FE1CCA0055040F /* Configs */,
 				575412A82B14261800507BC5 /* Workflows */,
@@ -2133,7 +2126,6 @@
 				E690B56012984A1B007EA508 /* pwsafe.xsd in Resources */,
 				E690B56112984A1B007EA508 /* pwsafe.xsl in Resources */,
 				579BDA4F2C55F0A1004C727B /* Assets.xcassets in Resources */,
-				AC2B77442E5FC03100778172 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
